@@ -1,4 +1,11 @@
 # Flask Web Form Template
+Jack Mossbarger/ Daniel Hospodarsky
+A basic survey to get to know our friends better.
+INSTRUCTIONS:
+clone repo from github
+set up virutal environment
+run the flask server
+copy url it gives into a browser 
 
 Basic structure for starting a Flask web form project with Jinja templates
 
@@ -38,6 +45,7 @@ Basic structure for starting a Flask web form project with Jinja templates
 12. Continue working with the project as you normally would.
 
 ### TO-DO
+is this accurate? This does not align with the icon instructions, so we following those.
 
 - [x] Catch all selected activities in /add and put them into the python dictionary
 - [ ] Create a confirmation page before submitting
