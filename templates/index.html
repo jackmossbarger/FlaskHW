@@ -4,103 +4,129 @@
 <main>
   <form action="/add" method="POST">
     <p>
-      <label for="first-name">First name:</label>
-      <input type="text" id="first-name" name="fname" />
+      <label for="Title">Title:</label>
+      <input type="text" id="Title" name="Title" />
+    </p>
+    <p>
+      <label for="Author">Author:</label>
+      <input type="text" id="Author" name="Author" />
+    </p>
+    <p>
+      <label for="Pages">Pages:</label>
+      <input type="text" id="Pages" name="Pages" />
     </p>
 
     <p>
-      <label for="ice-cream">
-        Favorite flavor of ice cream:
-        <select name="flavor" id="ice-cream" required>
-          <option value="" selected>Choose one ...</option>
-          <option value="vanilla">Vanilla</option>
-          <option value="chocolate">Chocolate</option>
-          <option value="swirl">Swirl</option>
-        </select>
-      </label>
-    </p>
-    <p>
-      <label>Do you read for fun?</label>
+      <label>Classification:</label>
       <label for="read-yes">
         <input
           type="radio"
-          id="read-yes"
+          id="read-fiction"
           name="read"
-          value="yes"
+          value="fiction"
           required="required"
         />
-        Yes
+        fiction
       </label>
 
       <label for="read-no">
         <input
           type="radio"
-          id="read-no"
+          id="read-non-fiction"
           name="read"
-          value="no"
+          value="non-fiction"
           required="required"
         />
-        No
+        non-fiction
       </label>
     </p>
-
     <fieldset>
-      <legend>Choose your favorite activities</legend>
-      <label for="for-running">
+      <legend>Details:</legend>
+      <label for="for-own">
         <input
           type="checkbox"
-          id="for-running"
+          id="for-own"
           name="activities"
-          value="running"
+          value="own"
         />
-        Running
+        I own this book
       </label>
 
-      <label for="for-biking">
+      <label for="for-read">
         <input
           type="checkbox"
-          id="for-biking"
+          id="for-read"
           name="activities"
-          value="biking"
+          value="read"
         />
-        Biking
+        I have read this book
       </label>
 
-      <label for="for-reading">
+      <label for="for-like">
         <input
           type="checkbox"
-          id="for-reading"
+          id="for-like"
           name="activities"
-          value="reading"
+          value="like"
         />
-        Reading
+        I liked this book
+      </label>
+
+      <label for="for-recommend">
+        <input
+          type="checkbox"
+          id="for-recommend"
+          name="activities"
+          value="recommend"
+        />
+        I would recommend this book
       </label>
     </fieldset>
+
+    <p>
+      <label for="acquire">
+        How did I get this book:
+        <select name="Option" id="Option" required>
+          <Option value="" selected>Choose one ...</Option>
+          <Option value="purchased">I purchased it</Option>
+          <Option value="gift">It was a gift</Option>
+          <Option value="lib">I checked it out from the lib</Option>
+          <Option value="loaned">A friend loaned it to me</Option>
+        </select>
+      </label>
+    </p>
+    
+
+    
 
     <p><input type="submit" id="submit" value="Submit" /></p>
   </form>
 
   <br /><br />
   {% if friends %}
-  <h3>Friend List</h3>
+  <h3>List of Books</h3>
   <hr />
   <table border="1">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Favorite Ice Cream</th>
-        <th>Read for Fun</th>
-        <th>Favorite Activities</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Pages</th>
+        <th>Classification</th>
+        <th>Details</th>
+        <th>Acquisition</th>
       </tr>
     </thead>
 
     <tbody>
       {% for friend in friends %}
       <tr>
-        <td>{{ friend.name }}</td>
-        <td>{{ friend.flavor }}</td>
+        <td>{{ friend.Title }}</td>
+        <td>{{ friend.Author }}</td>
+        <td>{{ friend.Pages}}</td>
         <td>{{ friend.read }}</td>
         <td>{{ friend.activities }}</td>
+        <td>{{ friend.Option }}</td>
       </tr>
       {% endfor %}
     </tbody>
